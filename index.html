@@ -5,101 +5,137 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mahan Bharat — India's Glory on Screen</title>
   <style>
+    :root {
+      --card-width: 220px;
+      --card-height: 330px;
+      --gap: 20px;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e2937);
-      color: #f1f5f9;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
     }
+
     header {
       text-align: center;
-      padding: 60px 20px 40px;
-      background: linear-gradient(to right, #b91c1c, #f59e0b);
+      padding: 80px 20px 50px;
+      background: linear-gradient(135deg, #b91c1c, #c2410c);
       color: white;
     }
+
     h1 {
-      font-size: 3.2rem;
       margin: 0;
-      text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      font-size: 3.8rem;
+      letter-spacing: -1px;
     }
+
     .tagline {
-      font-size: 1.4rem;
-      margin: 10px 0 0;
-      opacity: 0.95;
+      font-size: 1.5rem;
+      margin: 12px 0 0;
+      opacity: 0.9;
     }
-    .container {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+
+    main {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 40px 20px;
     }
-    .section {
-      background: rgba(255,255,255,0.05);
-      border-radius: 16px;
-      padding: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+    .row {
+      margin-bottom: 60px;
     }
-    .section h2 {
+
+    .row h2 {
+      font-size: 2.1rem;
+      margin: 0 0 20px 10px;
       color: #fbbf24;
-      border-bottom: 3px solid #fbbf24;
-      padding-bottom: 10px;
-      margin-top: 0;
+      border-left: 5px solid #fbbf24;
+      padding-left: 15px;
     }
-    .movie-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
+
+    .carousel {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* IE + Edge */
+      display: flex;
+      gap: var(--gap);
+      padding: 0 10px 20px;
     }
+
+    .carousel::-webkit-scrollbar {
+      display: none;  /* Chrome, Safari, Opera */
+    }
+
     .movie-card {
-      background: #1e2937;
+      flex: 0 0 var(--card-width);
+      scroll-snap-align: start;
+      background: #1e293b;
       border-radius: 12px;
       overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
+
     .movie-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px rgba(251, 191, 36, 0.3);
+      transform: scale(1.08);
+      box-shadow: 0 12px 35px rgba(251, 191, 36, 0.35);
+      z-index: 2;
     }
+
     .poster {
       width: 100%;
-      height: 380px;
+      height: var(--card-height);
       object-fit: cover;
+      display: block;
     }
-    .movie-info {
-      padding: 15px;
+
+    .info {
+      padding: 14px;
     }
-    .movie-info h3 {
-      margin: 0 0 8px;
-      font-size: 1.25rem;
+
+    .info h3 {
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+      line-height: 1.3;
     }
+
     .year {
       color: #94a3b8;
       font-size: 0.95rem;
+      margin-bottom: 10px;
     }
-    .buttons {
-      margin-top: 15px;
+
+    .platforms {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
-    .btn {
-      padding: 10px 18px;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .btn-prime { background: #00a4e3; color: white; }
-    .btn-netflix { background: #e50914; color: white; }
-    .btn-youtube { background: #ff0000; color: white; }
-    .btn-hotstar { background: #00b4ff; color: white; }
 
-    @media (max-width: 900px) {
-      .container { grid-template-columns: 1fr; }
+    .btn {
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-prime { background: #00a4e3; }
+    .btn-netflix { background: #e50914; }
+    .btn-youtube { background: #ff0000; }
+    .btn-hotstar { background: #00b4ff; }
+
+    @media (max-width: 600px) {
+      :root {
+        --card-width: 160px;
+        --card-height: 240px;
+      }
+      h1 { font-size: 2.6rem; }
     }
   </style>
 </head>
@@ -109,58 +145,59 @@
     <p class="tagline">India's Forgotten Glory on Screen</p>
   </header>
 
-  <div class="container">
-    <!-- Military Column -->
-    <div class="section">
-      <h2>⚔️ Military & True Battle Movies</h2>
-      <div class="movie-grid" id="military-grid"></div>
-    </div>
-
-    <!-- Rulers & Kings Column -->
-    <div class="section">
-      <h2>👑 Rulers, Kings & Legends</h2>
-      <div class="movie-grid" id="rulers-grid"></div>
-    </div>
-  </div>
-
-  <script>
-    const movies = [
-      // Military Movies
-      { title: "Tanhaji", year: "2020", platform: "prime", poster: "https://i.imgur.com/8zqKz1J.jpg", type: "military" },
-      { title: "Uri: The Surgical Strike", year: "2019", platform: "prime", poster: "https://i.imgur.com/3vJ8v9k.jpg", type: "military" },
-      { title: "Shershaah", year: "2021", platform: "prime", poster: "https://i.imgur.com/5pL2vXj.jpg", type: "military" },
-      { title: "Border", year: "1997", platform: "youtube", poster: "https://i.imgur.com/K9pL2vX.jpg", type: "military" },
-      { title: "The Legend of Bhagat Singh", year: "2002", platform: "prime", poster: "https://i.imgur.com/9vL2kXj.jpg", type: "military" },
-
-      // Rulers & Kings Movies
-      { title: "Bajirao Mastani", year: "2015", platform: "netflix", poster: "https://i.imgur.com/7vL2kXj.jpg", type: "rulers" },
-      { title: "Manikarnika: The Queen of Jhansi", year: "2019", platform: "prime", poster: "https://i.imgur.com/2vL2kXj.jpg", type: "rulers" },
-      { title: "Padmaavat", year: "2018", platform: "netflix", poster: "https://i.imgur.com/4vL2kXj.jpg", type: "rulers" },
-      { title: "Samrat Prithviraj", year: "2022", platform: "prime", poster: "https://i.imgur.com/6vL2kXj.jpg", type: "rulers" },
-      { title: "Chhatrapati Shivaji Maharaj (2023)", year: "2023", platform: "youtube", poster: "https://i.imgur.com/1vL2kXj.jpg", type: "rulers" }
-    ];
-
-    function createCard(movie) {
-      const card = document.createElement('div');
-      card.className = 'movie-card';
-      card.innerHTML = `
-        <img src="${movie.poster}" class="poster" alt="${movie.title}">
-        <div class="movie-info">
-          <h3>${movie.title}</h3>
-          <p class="year">${movie.year}</p>
-          <div class="buttons">
-            ${movie.platform === 'prime' ? '<button class="btn btn-prime">Prime Video</button>' : ''}
-            ${movie.platform === 'netflix' ? '<button class="btn btn-netflix">Netflix</button>' : ''}
-            ${movie.platform === 'youtube' ? '<button class="btn btn-youtube">YouTube Free</button>' : ''}
+  <main>
+    <!-- Row 1: Military True Stories -->
+    <section class="row">
+      <h2>⚔️ Military & True Battle Stories</h2>
+      <div class="carousel">
+        <!-- Movie cards go here -->
+        <div class="movie-card">
+          <img class="poster" src="https://images.justwatch.com/poster/308468278/s718/tanhaji-the-unsung-warrior.%7Bformat%7D" alt="Tanhaji">
+          <div class="info">
+            <h3>Tanhaji: The Unsung Warrior</h3>
+            <div class="year">2020</div>
+            <div class="platforms">
+              <a href="#" class="btn btn-prime">Prime Video</a>
+            </div>
           </div>
         </div>
-      `;
-      return card;
-    }
 
-    // Populate grids
-    document.getElementById('military-grid').append(...movies.filter(m => m.type === 'military').map(createCard));
-    document.getElementById('rulers-grid').append(...movies.filter(m => m.type === 'rulers').map(createCard));
-  </script>
+        <div class="movie-card">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BNmI4YzMyZTktMjFlYS00M2Y1LTk1ZjMtN2M0ZTVhZTAwZjQ5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg" alt="Uri">
+          <div class="info">
+            <h3>Uri: The Surgical Strike</h3>
+            <div class="year">2019</div>
+            <div class="platforms">
+              <a href="#" class="btn btn-prime">Prime Video</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add 8–12 cards per row -->
+      </div>
+    </section>
+
+    <!-- Row 2: Kings & Rulers -->
+    <section class="row">
+      <h2>👑 Kings, Warriors & Legends</h2>
+      <div class="carousel">
+        <!-- Similar movie cards here -->
+        <div class="movie-card">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMTU4MjU0Njg2NV5BMl5BanBnXkFtZTgwMjA0MDM2ODE@._V1_.jpg" alt="Bajirao Mastani">
+          <div class="info">
+            <h3>Bajirao Mastani</h3>
+            <div class="year">2015</div>
+            <div class="platforms">
+              <a href="#" class="btn btn-netflix">Netflix</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- More cards... -->
+      </div>
+    </section>
+
+    <!-- Add more rows as needed -->
+  </main>
 </body>
 </html>
