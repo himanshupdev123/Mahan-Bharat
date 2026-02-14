@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahan Bharat — India's Glory on Screen</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e2937);
+      color: #f1f5f9;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(to right, #b91c1c, #f59e0b);
+      color: white;
+    }
+    h1 {
+      font-size: 3.2rem;
+      margin: 0;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    .tagline {
+      font-size: 1.4rem;
+      margin: 10px 0 0;
+      opacity: 0.95;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .section {
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .section h2 {
+      color: #fbbf24;
+      border-bottom: 3px solid #fbbf24;
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+    .movie-card {
+      background: #1e2937;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .movie-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(251, 191, 36, 0.3);
+    }
+    .poster {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+    }
+    .movie-info {
+      padding: 15px;
+    }
+    .movie-info h3 {
+      margin: 0 0 8px;
+      font-size: 1.25rem;
+    }
+    .year {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+    .buttons {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-prime { background: #00a4e3; color: white; }
+    .btn-netflix { background: #e50914; color: white; }
+    .btn-youtube { background: #ff0000; color: white; }
+    .btn-hotstar { background: #00b4ff; color: white; }
+
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mahan Bharat</h1>
+    <p class="tagline">India's Forgotten Glory on Screen</p>
+  </header>
+
+  <div class="container">
+    <!-- Military Column -->
+    <div class="section">
+      <h2>⚔️ Military & True Battle Movies</h2>
+      <div class="movie-grid" id="military-grid"></div>
+    </div>
+
+    <!-- Rulers & Kings Column -->
+    <div class="section">
+      <h2>👑 Rulers, Kings & Legends</h2>
+      <div class="movie-grid" id="rulers-grid"></div>
+    </div>
+  </div>
+
+  <script>
+    const movies = [
+      // Military Movies
+      { title: "Tanhaji", year: "2020", platform: "prime", poster: "https://i.imgur.com/8zqKz1J.jpg", type: "military" },
+      { title: "Uri: The Surgical Strike", year: "2019", platform: "prime", poster: "https://i.imgur.com/3vJ8v9k.jpg", type: "military" },
+      { title: "Shershaah", year: "2021", platform: "prime", poster: "https://i.imgur.com/5pL2vXj.jpg", type: "military" },
+      { title: "Border", year: "1997", platform: "youtube", poster: "https://i.imgur.com/K9pL2vX.jpg", type: "military" },
+      { title: "The Legend of Bhagat Singh", year: "2002", platform: "prime", poster: "https://i.imgur.com/9vL2kXj.jpg", type: "military" },
+
+      // Rulers & Kings Movies
+      { title: "Bajirao Mastani", year: "2015", platform: "netflix", poster: "https://i.imgur.com/7vL2kXj.jpg", type: "rulers" },
+      { title: "Manikarnika: The Queen of Jhansi", year: "2019", platform: "prime", poster: "https://i.imgur.com/2vL2kXj.jpg", type: "rulers" },
+      { title: "Padmaavat", year: "2018", platform: "netflix", poster: "https://i.imgur.com/4vL2kXj.jpg", type: "rulers" },
+      { title: "Samrat Prithviraj", year: "2022", platform: "prime", poster: "https://i.imgur.com/6vL2kXj.jpg", type: "rulers" },
+      { title: "Chhatrapati Shivaji Maharaj (2023)", year: "2023", platform: "youtube", poster: "https://i.imgur.com/1vL2kXj.jpg", type: "rulers" }
+    ];
+
+    function createCard(movie) {
+      const card = document.createElement('div');
+      card.className = 'movie-card';
+      card.innerHTML = `
+        <img src="${movie.poster}" class="poster" alt="${movie.title}">
+        <div class="movie-info">
+          <h3>${movie.title}</h3>
+          <p class="year">${movie.year}</p>
+          <div class="buttons">
+            ${movie.platform === 'prime' ? '<button class="btn btn-prime">Prime Video</button>' : ''}
+            ${movie.platform === 'netflix' ? '<button class="btn btn-netflix">Netflix</button>' : ''}
+            ${movie.platform === 'youtube' ? '<button class="btn btn-youtube">YouTube Free</button>' : ''}
+          </div>
+        </div>
+      `;
+      return card;
+    }
+
+    // Populate grids
+    document.getElementById('military-grid').append(...movies.filter(m => m.type === 'military').map(createCard));
+    document.getElementById('rulers-grid').append(...movies.filter(m => m.type === 'rulers').map(createCard));
+  </script>
+</body>
+</html>
