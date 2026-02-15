@@ -10,43 +10,36 @@
       --card-height: 330px;
       --gap: 20px;
     }
-
     body {
       margin: 0;
       font-family: 'Segoe UI', system-ui, sans-serif;
       background: #0f172a;
       color: #e2e8f0;
     }
-
     header {
       text-align: center;
       padding: 80px 20px 50px;
       background: linear-gradient(135deg, #b91c1c, #c2410c);
       color: white;
     }
-
     h1 {
       margin: 0;
       font-size: 3.8rem;
       letter-spacing: -1px;
     }
-
     .tagline {
       font-size: 1.5rem;
       margin: 12px 0 0;
       opacity: 0.9;
     }
-
     main {
       max-width: 1600px;
       margin: 0 auto;
       padding: 40px 20px;
     }
-
     .row {
       margin-bottom: 60px;
     }
-
     .row h2 {
       font-size: 2.1rem;
       margin: 0 0 20px 10px;
@@ -54,22 +47,19 @@
       border-left: 5px solid #fbbf24;
       padding-left: 15px;
     }
-
     .carousel {
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
       scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none;  /* IE + Edge */
+      -ms-overflow-style: none; /* IE + Edge */
       display: flex;
       gap: var(--gap);
       padding: 0 10px 20px;
     }
-
     .carousel::-webkit-scrollbar {
-      display: none;  /* Chrome, Safari, Opera */
+      display: none; /* Chrome, Safari, Opera */
     }
-
     .movie-card {
       flex: 0 0 var(--card-width);
       scroll-snap-align: start;
@@ -79,42 +69,35 @@
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
-
     .movie-card:hover {
       transform: scale(1.08);
       box-shadow: 0 12px 35px rgba(251, 191, 36, 0.35);
       z-index: 2;
     }
-
     .poster {
       width: 100%;
       height: var(--card-height);
       object-fit: cover;
       display: block;
     }
-
     .info {
       padding: 14px;
     }
-
     .info h3 {
       margin: 0 0 6px;
       font-size: 1.15rem;
       line-height: 1.3;
     }
-
     .year {
       color: #94a3b8;
       font-size: 0.95rem;
       margin-bottom: 10px;
     }
-
     .platforms {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
-
     .btn {
       padding: 8px 14px;
       border-radius: 6px;
@@ -122,14 +105,16 @@
       font-weight: 600;
       color: white;
       text-decoration: none;
-      transition: background 0.2s;
+      transition: all 0.2s;
     }
-
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
     .btn-prime { background: #00a4e3; }
     .btn-netflix { background: #e50914; }
     .btn-youtube { background: #ff0000; }
     .btn-hotstar { background: #00b4ff; }
-
     @media (max-width: 600px) {
       :root {
         --card-width: 160px;
@@ -146,18 +131,17 @@
   </header>
 
   <main>
-    <!-- Row 1: Military True Stories -->
+    <!-- Row 1: Military & True Battle Stories -->
     <section class="row">
       <h2>⚔️ Military & True Battle Stories</h2>
       <div class="carousel">
-        <!-- Movie cards go here -->
         <div class="movie-card">
           <img class="poster" src="https://images.justwatch.com/poster/308468278/s718/tanhaji-the-unsung-warrior.%7Bformat%7D" alt="Tanhaji">
           <div class="info">
             <h3>Tanhaji: The Unsung Warrior</h3>
             <div class="year">2020</div>
             <div class="platforms">
-              <a href="#" class="btn btn-prime">Prime Video</a>
+              <a href="https://www.primevideo.com/detail/Tanhaji-The-Unsung-Warrior/0H8K7ZJ0K0K0K0K0K0K0K0K" target="_blank" class="btn btn-prime">Prime Video</a>
             </div>
           </div>
         </div>
@@ -168,36 +152,121 @@
             <h3>Uri: The Surgical Strike</h3>
             <div class="year">2019</div>
             <div class="platforms">
-              <a href="#" class="btn btn-prime">Prime Video</a>
+              <a href="https://www.primevideo.com/detail/Uri-The-Surgical-Strike/0J0J0J0J0J0J0J0J0J0J" target="_blank" class="btn btn-prime">Prime Video</a>
             </div>
           </div>
         </div>
 
-        <!-- Add 8–12 cards per row -->
+        <div class="movie-card">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMTU0NjY5MTktZjA0Ni00Y2Q5LTk0ZjctM2M0ZTVmN2Q4ZjY5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg" alt="Shershaah">
+          <div class="info">
+            <h3>Shershaah</h3>
+            <div class="year">2021</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/Shershaah/0P0P0P0P0P0P0P0P0P0P" target="_blank" class="btn btn-prime">Prime Video</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BOTY3MmJkM2MtOGY0YS00ZjE5LTljZjEtN2M0ZTVhZTAwZjQ5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg" alt="Border">
+          <div class="info">
+            <h3>Border</h3>
+            <div class="year">1997</div>
+            <div class="platforms">
+              <a href="https://www.youtube.com/watch?v=example-border-full" target="_blank" class="btn btn-youtube">YouTube</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMTY5Njk4NzU5M15BMl5BanBnXkFtZTcwMjg5NjIzMQ@@._V1_.jpg" alt="The Legend of Bhagat Singh">
+          <div class="info">
+            <h3>The Legend of Bhagat Singh</h3>
+            <div class="year">2002</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/The-Legend-of-Bhagat-Singh/0K0K0K0K0K0K0K0K0K0K" target="_blank" class="btn btn-prime">Prime Video</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more military movies here -->
       </div>
     </section>
 
-    <!-- Row 2: Kings & Rulers -->
+    <!-- Row 2: Kings, Warriors & Legends -->
     <section class="row">
       <h2>👑 Kings, Warriors & Legends</h2>
       <div class="carousel">
-        <!-- Similar movie cards here -->
         <div class="movie-card">
           <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMTU4MjU0Njg2NV5BMl5BanBnXkFtZTgwMjA0MDM2ODE@._V1_.jpg" alt="Bajirao Mastani">
           <div class="info">
             <h3>Bajirao Mastani</h3>
             <div class="year">2015</div>
             <div class="platforms">
-              <a href="#" class="btn btn-netflix">Netflix</a>
+              <a href="https://www.netflix.com/title/80067939" target="_blank" class="btn btn-netflix">Netflix</a>
             </div>
           </div>
         </div>
 
-        <!-- More cards... -->
+        <div class="movie-card">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMTc1MDU2OTY1M15BMl5BanBnXkFtZTgwNzA0MDM2ODE@._V1_.jpg" alt="Manikarnika">
+          <div class="info">
+            <h3>Manikarnika: The Queen of Jhansi</h3>
+            <div class="year">2019</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/Manikarnika-The-Queen-of-Jhansi/0M0M0M0M0M0M0M0M0M0M" target="_blank" class="btn btn-prime">Prime Video</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMTU4MjU0Njg2NV5BMl5BanBnXkFtZTgwMjA0MDM2ODE@._V1_.jpg" alt="Padmaavat">
+          <div class="info">
+            <h3>Padmaavat</h3>
+            <div class="year">2018</div>
+            <div class="platforms">
+              <a href="https://www.netflix.com/title/81000000" target="_blank" class="btn btn-netflix">Netflix</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMTU4MjU0Njg2NV5BMl5BanBnXkFtZTgwMjA0MDM2ODE@._V1_.jpg" alt="Samrat Prithviraj">
+          <div class="info">
+            <h3>Samrat Prithviraj</h3>
+            <div class="year">2022</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/Samrat-Prithviraj/0P0P0P0P0P0P0P0P0P0P" target="_blank" class="btn btn-prime">Prime Video</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMTU4MjU0Njg2NV5BMl5BanBnXkFtZTgwMjA0MDM2ODE@._V1_.jpg" alt="Chhatrapati Shivaji Maharaj">
+          <div class="info">
+            <h3>Chhatrapati Shivaji Maharaj (2023)</h3>
+            <div class="year">2023</div>
+            <div class="platforms">
+              <a href="https://www.youtube.com/watch?v=example-shivaji-full" target="_blank" class="btn btn-youtube">YouTube</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="movie-card">
+          <img class="poster" src="https://m.media-amazon.com/images/M/MV5BMTU4MjU0Njg2NV5BMl5BanBnXkFtZTgwMjA0MDM2ODE@._V1_.jpg" alt="Panipat">
+          <div class="info">
+            <h3>Panipat</h3>
+            <div class="year">2019</div>
+            <div class="platforms">
+              <a href="https://www.hotstar.com/in/movies/panipat/1260021771" target="_blank" class="btn btn-hotstar">Hotstar</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Add more rows as needed -->
+    <!-- Add more rows here if you want (e.g., Freedom Struggle, Ancient Era, etc.) -->
   </main>
 </body>
 </html>
