@@ -56,6 +56,11 @@
       display: flex;
       gap: var(--gap);
       padding: 0 10px 20px;
+      user-select: none;
+      cursor: grab;
+    }
+    .carousel:active {
+      cursor: grabbing;
     }
     .carousel::-webkit-scrollbar {
       display: none; /* Chrome, Safari, Opera */
@@ -131,356 +136,361 @@
     <h3>Contributors to this page: Ajil K, Omkar Chevale, Himanshu P Dev</h3>
   </header>
 
- <main>
-  <!-- Row 1: Kings, Warriors & Legends (now first / on top) -->
-  <section class="row">
-    <h2>👑 Kings, Warriors & Legends</h2>
-    <div class="carousel">
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Manikarnika%20The%20Queen%20of%20Jhansi.png?raw=true" alt="Manikarnika">
-        <div class="info">
-          <h3>Manikarnika: The Queen of Jhansi</h3>
-          <div class="year">2019</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/0P5X27BE9GZG6Z36RA4O0VVENF/ref=atv_dp_share_cu_r" target="_blank" class="btn btn-prime">Prime Video</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Padmaavat.png?raw=true" alt="Padmaavat">
-        <div class="info">
-          <h3>Padmaavat</h3>
-          <div class="year">2018</div>
-          <div class="platforms">
-               <a href="https://www.primevideo.com/detail/0LCQGVFVLNI8MOOGAT6T4611H2/ref=atv_dp_share_cu_r" target="_blank" class="btn btn-prime">Prime Video</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://raw.githubusercontent.com/himanshupdev123/Mahan-Bharat/refs/heads/new-branch/images%20new/Samrat%20Prithviraj.avif" alt="Samrat Prithviraj">
-        <div class="info">
-          <h3>Samrat Prithviraj</h3>
-          <div class="year">2022</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/0MFQX55JQ5IJSLCU0WT0E2INJM/ref=atv_dp_share_cu_r" target="_blank" class="btn btn-prime">Prime Video</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/chhaava.png?raw=true" alt="Chhatrapati Shivaji Maharaj">
-        <div class="info">
-          <h3>Chhaava</h3>
-          <div class="year">2025</div>
-          <div class="platforms">
-            <a href="https://www.netflix.com/in/title/81902061" target="_blank" class="btn btn-netflix">NetFlix</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Panipat.png?raw=true" alt="Panipat">
-        <div class="info">
-          <h3>Panipat</h3>
-          <div class="year">2019</div>
-          <div class="platforms">
-            <a href="https://www.netflix.com/in/title/81227047" target="_blank" class="btn btn-netflix">NetFlix</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Tanhaji%20The%20Unsung%20Warrior.png?raw=true" alt="Tanhaji">
-        <div class="info">
-          <h3>Tanhaji: The Unsung Warrior</h3>
-          <div class="year">2020</div>
-          <div class="platforms">
-            <a href="https://www.hotstar.com/in/movies/tanhaji/1260022117?search_query=tan" target="_blank" class="btn btn-hotstar">Jio Hotstar</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Row 2: Military & True Battle Stories (now second / below) -->
-  <section class="row">
-    <h2>⚔️ Military & True Battle Stories</h2>
-    <div class="carousel">
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Uri%20The%20Surgical%20Strike.png?raw=true" alt="Uri">
-        <div class="info">
-          <h3>Uri: The Surgical Strike</h3>
-          <div class="year">2019</div>
-          <div class="platforms">
-            <a href="https://zee5.onelink.me/RlQq/04wtdprd" target="_blank" class="btn btn-prime">Zee 5</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Shershaah.png?raw=true" alt="Shershaah">
-        <div class="info">
-          <h3>Shershaah</h3>
-          <div class="year">2021</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/0J3P7DO2UHT2IGF8UY24C2I94C/ref=atv_dp_share_cu_r" target="_blank" class="btn btn-prime">Prime Video</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Border.png?raw=true" alt="Border">
-        <div class="info">
-          <h3>Border</h3>
-          <div class="year">1997</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/0P77A1EBLX1EO5J3V77GGE7BMW/ref=atv_dp_share_cu_r" target="_blank" class="btn btn-prime">Prime Video</a>
-            <a href="https://www.hotstar.com/in/movies/border/1271522304" target="_blank" class="btn btn-hotstar">Jio Hotstar</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/The%20Legend%20of%20Bhagat%20Singh.png?raw=true" alt="The Legend of Bhagat Singh">
-        <div class="info">
-          <h3>The Legend of Bhagat Singh</h3>
-          <div class="year">2002</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/0OJV9VCN0OBDRXDX1OMPFA1LJT/ref=atv_dp_share_cu_r" target="_blank" class="btn btn-prime">Prime Video</a>
-          </div>
-        </div>
-      </div>
-
+  <main>
+    <!-- Row 1: Kings, Warriors & Legends (now first / on top) -->
+    <section class="row">
+      <h2>👑 Kings, Warriors & Legends</h2>
+      <div class="carousel">
         <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Border-2.png?raw=true" alt="Border 2">
-        <div class="info">
-          <h3>Border 2</h3>
-          <div class="year">2026</div>
-          <div class="platforms">
-            <a href="https://www.imdb.com/showtimes/title/tt30387012/2026-02-16/" target="_blank" class="btn btn-youtube">Movie Theater</a>
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Manikarnika%20The%20Queen%20of%20Jhansi.png?raw=true" alt="Manikarnika">
+          <div class="info">
+            <h3>Manikarnika: The Queen of Jhansi</h3>
+            <div class="year">2019</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/0P5X27BE9GZG6Z36RA4O0VVENF/ref=atv_dp_share_cu_r" target="_blank" class="btn btn-prime">Prime Video</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Padmaavat.png?raw=true" alt="Padmaavat">
+          <div class="info">
+            <h3>Padmaavat</h3>
+            <div class="year">2018</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/0LCQGVFVLNI8MOOGAT6T4611H2/ref=atv_dp_share_cu_r" target="_blank" class="btn btn-prime">Prime Video</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://raw.githubusercontent.com/himanshupdev123/Mahan-Bharat/refs/heads/new-branch/images%20new/Samrat%20Prithviraj.avif" alt="Samrat Prithviraj">
+          <div class="info">
+            <h3>Samrat Prithviraj</h3>
+            <div class="year">2022</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/0MFQX55JQ5IJSLCU0WT0E2INJM/ref=atv_dp_share_cu_r" target="_blank" class="btn btn-prime">Prime Video</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/chhaava.png?raw=true" alt="Chhatrapati Shivaji Maharaj">
+          <div class="info">
+            <h3>Chhaava</h3>
+            <div class="year">2025</div>
+            <div class="platforms">
+              <a href="https://www.netflix.com/in/title/81902061" target="_blank" class="btn btn-netflix">NetFlix</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Panipat.png?raw=true" alt="Panipat">
+          <div class="info">
+            <h3>Panipat</h3>
+            <div class="year">2019</div>
+            <div class="platforms">
+              <a href="https://www.netflix.com/in/title/81227047" target="_blank" class="btn btn-netflix">NetFlix</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Tanhaji%20The%20Unsung%20Warrior.png?raw=true" alt="Tanhaji">
+          <div class="info">
+            <h3>Tanhaji: The Unsung Warrior</h3>
+            <div class="year">2020</div>
+            <div class="platforms">
+              <a href="https://www.hotstar.com/in/movies/tanhaji/1260022117?search_query=tan" target="_blank" class="btn btn-hotstar">Jio Hotstar</a>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Bhuj.png?raw=true" alt="Bhuj: The Pride of India">
-        <div class="info">
-          <h3>Bhuj: The Pride of India</h3>
-          <div class="year">2021</div>
-          <div class="platforms">
-            <a href="https://www.hotstar.com/in/movies/bhuj-the-pride-of-india/1260036201" target="_blank" class="btn btn-hotstar">Jio Hotstar</a>
+    <!-- Row 2: Military & True Battle Stories -->
+    <section class="row">
+      <h2>⚔️ Military & True Battle Stories</h2>
+      <div class="carousel">
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Uri%20The%20Surgical%20Strike.png?raw=true" alt="Uri">
+          <div class="info">
+            <h3>Uri: The Surgical Strike</h3>
+            <div class="year">2019</div>
+            <div class="platforms">
+              <a href="https://zee5.onelink.me/RlQq/04wtdprd" target="_blank" class="btn btn-prime">Zee 5</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Shershaah.png?raw=true" alt="Shershaah">
+          <div class="info">
+            <h3>Shershaah</h3>
+            <div class="year">2021</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/0J3P7DO2UHT2IGF8UY24C2I94C/ref=atv_dp_share_cu_r" target="_blank" class="btn btn-prime">Prime Video</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Border.png?raw=true" alt="Border">
+          <div class="info">
+            <h3>Border</h3>
+            <div class="year">1997</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/0P77A1EBLX1EO5J3V77GGE7BMW/ref=atv_dp_share_cu_r" target="_blank" class="btn btn-prime">Prime Video</a>
+              <a href="https://www.hotstar.com/in/movies/border/1271522304" target="_blank" class="btn btn-hotstar">Jio Hotstar</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/The%20Legend%20of%20Bhagat%20Singh.png?raw=true" alt="The Legend of Bhagat Singh">
+          <div class="info">
+            <h3>The Legend of Bhagat Singh</h3>
+            <div class="year">2002</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/0OJV9VCN0OBDRXDX1OMPFA1LJT/ref=atv_dp_share_cu_r" target="_blank" class="btn btn-prime">Prime Video</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Border-2.png?raw=true" alt="Border 2">
+          <div class="info">
+            <h3>Border 2</h3>
+            <div class="year">2026</div>
+            <div class="platforms">
+              <a href="https://www.imdb.com/showtimes/title/tt30387012/2026-02-16/" target="_blank" class="btn btn-youtube">Movie Theater</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Bhuj.png?raw=true" alt="Bhuj: The Pride of India">
+          <div class="info">
+            <h3>Bhuj: The Pride of India</h3>
+            <div class="year">2021</div>
+            <div class="platforms">
+              <a href="https://www.hotstar.com/in/movies/bhuj-the-pride-of-india/1260036201" target="_blank" class="btn btn-hotstar">Jio Hotstar</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Beyond%20borders%201971.png?raw=true" alt="1971: Beyond Borders">
+          <div class="info">
+            <h3>1971: Beyond Borders</h3>
+            <div class="year">2017</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/amzn1.dv.gti.f2b822a2-0ca1-13d6-7f83-868d9cb6ab8a" class="btn btn-prime">Prime Video</a>
+              <a href="https://www.hotstar.com/in/movies/1971-beyond-borders/1000231063?search_query=Beyond+borders+1971" target="_blank" class="btn btn-hotstar">Jio Hotstar</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Amaran.png?raw=true" alt="Amaran">
+          <div class="info">
+            <h3>Amaran</h3>
+            <div class="year">2024</div>
+            <div class="platforms">
+              <a href="https://www.netflix.com/in/title/81728596" target="_blank" class="btn btn-netflix">Netflix</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Agnipankh.png?raw=true" alt="Agnipankh">
+          <div class="info">
+            <h3>Agnipankh</h3>
+            <div class="year">2004</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/amzn1.dv.gti.6f826c83-d86f-4283-9b8a-f1c3c099f2fc" target="_blank" class="btn btn-prime">Prime Video</a>
+              <a href="https://www.youtube.com/watch?v=5VhHi5IbViU" target="_blank" class="btn btn-youtube">YouTube</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Ikkis.png?raw=true" alt="Ikkis">
+          <div class="info">
+            <h3>Ikkis</h3>
+            <div class="year">2026</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/amzn1.dv.gti.a2889ba2-92ff-4733-ad35-c9e513dff0f7" target="_blank" class="btn btn-prime">Prime Video</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Kesari.png?raw=true" alt="Kesari">
+          <div class="info">
+            <h3>Kesari</h3>
+            <div class="year">2019</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/amzn1.dv.gti.46b52be2-3a4c-b04c-8560-1e5ef8dea06e" target="_blank" class="btn btn-prime">Prime Video</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Lakshya.png?raw=true" alt="Lakshya">
+          <div class="info">
+            <h3>Lakshya</h3>
+            <div class="year">2004</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/amzn1.dv.gti.c6abecde-faec-d975-9780-5c8822ce4e0e" target="_blank" class="btn btn-prime">Prime Video</a>
+              <a href="https://www.youtube.com/watch?v=84sYnrZ7wRk" target="_blank" class="btn btn-youtube">YouTube</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Loc%20Kargil.png?raw=true" alt="Loc Kargil">
+          <div class="info">
+            <h3>Loc Kargil</h3>
+            <div class="year">2003</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/dp/amzn1.dv.gti.7cc2d461-9e43-4fb1-8fd7-c921e0125604?autoplay=0&ref_=atv_cf_strg_wb" target="_blank" class="btn btn-prime">Prime Video</a>
+              <a href="https://www.youtube.com/watch?v=dSmKiq3jUrA" target="_blank" class="btn btn-youtube">YouTube</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Operation%20valentine.png?raw=true" alt="Operation Valentine">
+          <div class="info">
+            <h3>Operation Valentine</h3>
+            <div class="year">2024</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/amzn1.dv.gti.8f7cf2c5-e0ce-4c36-8186-3a99d4acf50f" target="_blank" class="btn btn-prime">Prime Video</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Paltan.png?raw=true" alt="Paltan">
+          <div class="info">
+            <h3>Paltan</h3>
+            <div class="year">2018</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/amzn1.dv.gti.480139b7-7ab9-4ef1-b3d6-c5b8b255e950" target="_blank" class="btn btn-prime">Prime Video</a>
+              <a href="https://www.zee5.com/movies/details/paltan/0-0-7361" target="_blank" class="btn btn-prime">ZEE5</a>
+              <a href="https://www.youtube.com/watch?v=Do7jLmfOpgY" target="_blank" class="btn btn-youtube">YouTube</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Parmaanu.png?raw=true" alt="Parmanu: The Story of Pokhran">
+          <div class="info">
+            <h3>Parmanu: The Story of Pokhran</h3>
+            <div class="year">2018</div>
+            <div class="platforms">
+              <a href="https://www.zee5.com/movies/details/parmanu/0-0-movie_1968889812" target="_blank" class="btn btn-prime">ZEE5</a>
+              <a href="https://www.netflix.com/in/title/81005453" target="_blank" class="btn btn-netflix">Netflix</a>
+              <a href="https://www.airtelxstream.in/movies/parmanu/ZEEFIVE_MOVIE_0-0-movie_1968889812" target="_blank" class="btn btn-youtube">Airtel Xstream</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Picket%2043.png?raw=true" alt="Picket 43">
+          <div class="info">
+            <h3>Picket 43</h3>
+            <div class="year">2015</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/Picket-43-English-Subtitled/0KZW2B6WP4IHCYXY2OY5OF0XA7" target="_blank" class="btn btn-prime">Prime Video</a>
+              <a href="https://www.sunnxt.com/malayalam-movie-picket-43-2015/detail/7924" target="_blank" class="btn btn-youtube">Sun NXT</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Pippa.png?raw=true" alt="Pippa">
+          <div class="info">
+            <h3>Pippa</h3>
+            <div class="year">2023</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/amzn1.dv.gti.80a47849-3ae9-4dcf-b3c9-0d4f45112b59" target="_blank" class="btn btn-prime">Prime Video</a>
+              <a href="https://www.mxplayer.in/movie/watch-pippa-movie-online-b805ccbdba1b3fc3b3651b360425fa09?watch=true" target="_blank" class="btn btn-prime">MX Player</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Sam%20bahadur.png?raw=true" alt="Sam Bahadur">
+          <div class="info">
+            <h3>Sam Bahadur</h3>
+            <div class="year">2023</div>
+            <div class="platforms">
+              <a href="https://www.zee5.com/movies/details/sam-bahadur/0-0-1z5500337" target="_blank" class="btn btn-prime">ZEE5</a>
+              <a href="https://www.airtelxstream.in/movies/sam-bahadur/ZEEFIVE_MOVIE_0-0-1z5500337?" target="_blank" class="btn btn-youtube">Airtel Xstream</a>
+              <a href="https://www.jiotv.com/full-movie/sam-bahadur/632917ee2c6a5ea4bf68bd4cc952c6b4" target="_blank" class="btn btn-youtube">Jio TV</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Sardar.png?raw=true" alt="Sardar">
+          <div class="info">
+            <h3>Sardar</h3>
+            <div class="year">2022</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/Sardar/0MU5L71EX45LALFAZ46EXOW8FV" target="_blank" class="btn btn-prime">Prime Video</a>
+              <a href="https://www.aha.video/movie/sardar-telugu" target="_blank" class="btn btn-youtube">Aha</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Sky%20force.png?raw=true" alt="Sky Force">
+          <div class="info">
+            <h3>Sky Force</h3>
+            <div class="year">2025</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/amzn1.dv.gti.e324ae53-4b7a-4aee-8f26-bd1c1bf19b29" target="_blank" class="btn btn-prime">Prime Video</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/The%20Gazi%20attack.png?raw=true" alt="Ghazi">
+          <div class="info">
+            <h3>The Ghazi Attack</h3>
+            <div class="year">2017</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/amzn1.dv.gti.9cad8c7c-d814-2ea7-bfb2-be0dc53a1a23" target="_blank" class="btn btn-prime">Prime Video</a>
+              <a href="https://www.netflix.com/in/title/80175334?source=imdb&fromWatch=true" target="_blank" class="btn btn-netflix">Netflix</a>
+            </div>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/120%20bahadur.png?raw=true" alt="120 Bahadur">
+          <div class="info">
+            <h3>120 Bahadur</h3>
+            <div class="year">2025</div>
+            <div class="platforms">
+              <a href="https://www.primevideo.com/detail/amzn1.dv.gti.e92c5254-ef54-48bd-9bb2-bd951d9a279b" target="_blank" class="btn btn-prime">Prime Video</a>
+            </div>
           </div>
         </div>
       </div>
-      
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Beyond%20borders%201971.png?raw=true" alt="1971: Beyond Borders">
-        <div class="info">
-          <h3>1971: Beyond Borders</h3>
-          <div class="year">2017</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/amzn1.dv.gti.f2b822a2-0ca1-13d6-7f83-868d9cb6ab8a" class="btn btn-prime">Prime Video</a>
-            <a href="https://www.hotstar.com/in/movies/1971-beyond-borders/1000231063?search_query=Beyond+borders+1971" target="_blank" class="btn btn-hotstar">Jio Hotstar</a>
-          </div>
-        </div>
-      </div>
+    </section>
+  </main>
 
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Amaran.png?raw=true" alt="Amaran">
-        <div class="info">
-          <h3>Amaran</h3>
-          <div class="year">2024</div>
-          <div class="platforms">
-            <a href="https://www.netflix.com/in/title/81728596" target="_blank" class="btn btn-netflix">Netflix</a>
-          </div>
-        </div>
-      </div>
+  <!-- Auto-scroll JavaScript -->
+  <script>
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      let scrollAmount = 0;
+      let isPaused = false;
+      const speed = 0.4; // Adjust this value: 0.2 = slow & elegant, 0.6 = faster
 
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Agnipankh.png?raw=true" alt="Agnipankh">
-        <div class="info">
-          <h3>Agnipankh</h3>
-          <div class="year">2004</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/amzn1.dv.gti.6f826c83-d86f-4283-9b8a-f1c3c099f2fc" target="_blank" class="btn btn-prime">Prime Video</a>
-            <a href="https://www.youtube.com/watch?v=5VhHi5IbViU" target="_blank" class="btn btn-youtube">YouTube</a>
-          </div>
-        </div>
-      </div>
+      function scroll() {
+        if (!isPaused) {
+          scrollAmount += speed;
+          carousel.scrollLeft = scrollAmount;
 
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Ikkis.png?raw=true" alt="Ikkis">
-        <div class="info">
-          <h3>Ikkis</h3>
-          <div class="year">2026</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/amzn1.dv.gti.a2889ba2-92ff-4733-ad35-c9e513dff0f7" target="_blank" class="btn btn-prime">Prime Video</a>
-          </div>
-        </div>
-      </div>
+          // Seamless loop: reset when scrolled past half
+          if (scrollAmount >= carousel.scrollWidth / 2) {
+            scrollAmount = 0;
+            carousel.scrollLeft = 0;
+          }
+        }
+        requestAnimationFrame(scroll);
+      }
 
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Kesari.png?raw=true" alt="Kesari">
-        <div class="info">
-          <h3>Kesari</h3>
-          <div class="year">2019</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/amzn1.dv.gti.46b52be2-3a4c-b04c-8560-1e5ef8dea06e" target="_blank" class="btn btn-prime">Prime Video</a>
-          </div>
-        </div>
-      </div>
+      // Start auto-scrolling
+      scroll();
 
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Lakshya.png?raw=true" alt="Lakshya">
-        <div class="info">
-          <h3>Lakshya</h3>
-          <div class="year">2004</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/amzn1.dv.gti.c6abecde-faec-d975-9780-5c8822ce4e0e" target="_blank" class="btn btn-prime">Prime Video</a>
-            <a href="https://www.youtube.com/watch?v=84sYnrZ7wRk" target="_blank" class="btn btn-youtube">YouTube</a>
-          </div>
-        </div>
-      </div>
+      // Pause on hover / touch
+      carousel.addEventListener('mouseenter', () => { isPaused = true; });
+      carousel.addEventListener('mouseleave', () => { isPaused = false; });
+      carousel.addEventListener('touchstart', () => { isPaused = true; });
+      carousel.addEventListener('touchend', () => { isPaused = false; });
 
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Loc%20Kargil.png?raw=true" alt="Loc Kargil">
-        <div class="info">
-          <h3>Loc Kargil</h3>
-          <div class="year">2003</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/dp/amzn1.dv.gti.7cc2d461-9e43-4fb1-8fd7-c921e0125604?autoplay=0&ref_=atv_cf_strg_wb" target="_blank" class="btn btn-prime">Prime Video</a>
-            <a href="https://www.youtube.com/watch?v=dSmKiq3jUrA" target="_blank" class="btn btn-youtube">YouTube</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Operation%20valentine.png?raw=true" alt="Operation Valentine">
-        <div class="info">
-          <h3>Operation Valentine</h3>
-          <div class="year">2024</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/amzn1.dv.gti.8f7cf2c5-e0ce-4c36-8186-3a99d4acf50f" target="_blank" class="btn btn-prime">Prime Video</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Paltan.png?raw=true" alt="Paltan">
-        <div class="info">
-          <h3>Paltan</h3>
-          <div class="year">2018</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/amzn1.dv.gti.480139b7-7ab9-4ef1-b3d6-c5b8b255e950" target="_blank" class="btn btn-prime">Prime Video</a>
-            <a href="https://www.zee5.com/movies/details/paltan/0-0-7361" target="_blank" class="btn btn-prime">ZEE5</a>
-            <a href="https://www.youtube.com/watch?v=Do7jLmfOpgY" target="_blank" class="btn btn-youtube">YouTube</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Parmaanu.png?raw=true" alt="Parmanu: The Story of Pokhran">
-        <div class="info">
-          <h3>Parmanu: The Story of Pokhran</h3>
-          <div class="year">2018</div>
-          <div class="platforms">
-            <a href="https://www.zee5.com/movies/details/parmanu/0-0-movie_1968889812" target="_blank" class="btn btn-prime">ZEE5</a>
-            <a href="https://www.netflix.com/in/title/81005453" target="_blank" class="btn btn-netflix">Netflix</a>
-            <a href="https://www.airtelxstream.in/movies/parmanu/ZEEFIVE_MOVIE_0-0-movie_1968889812" target="_blank" class="btn btn-youtube">Airtel Xstream</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Picket%2043.png?raw=true" alt="Picket 43">
-        <div class="info">
-          <h3>Picket 43</h3>
-          <div class="year">2015</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/Picket-43-English-Subtitled/0KZW2B6WP4IHCYXY2OY5OF0XA7"_blank" class="btn btn-prime">Prime Video</a>
-            <a href="https://www.sunnxt.com/malayalam-movie-picket-43-2015/detail/7924" class="btn btn-youtube">Sun NXT</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Pippa.png?raw=true" alt="Pippa">
-        <div class="info">
-          <h3>Pippa</h3>
-          <div class="year">2023</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/amzn1.dv.gti.80a47849-3ae9-4dcf-b3c9-0d4f45112b59" target="_blank" class="btn btn-prime">Prime Video</a>
-            <a href="https://www.mxplayer.in/movie/watch-pippa-movie-online-b805ccbdba1b3fc3b3651b360425fa09?watch=true" class="btn btn-prime">MX Player</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Sam%20bahadur.png?raw=true" alt="Sam Bahadur">
-        <div class="info">
-          <h3>Sam Bahadur</h3>
-          <div class="year">2023</div>
-          <div class="platforms">
-            <a href="https://www.zee5.com/movies/details/sam-bahadur/0-0-1z5500337" target="_blank" class="btn btn-prime">ZEE5</a>
-            <a href="https://www.airtelxstream.in/movies/sam-bahadur/ZEEFIVE_MOVIE_0-0-1z5500337?" target="_blank" class="btn btn-youtube">Airtel Xstreamr</a>
-            <a href="https://www.jiotv.com/full-movie/sam-bahadur/632917ee2c6a5ea4bf68bd4cc952c6b4" target="_blank" class="btn btn-youtube">Jio TV</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Sardar.png?raw=true" alt="Sardar">
-        <div class="info">
-          <h3>Sardar</h3>
-          <div class="year">2022</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/Sardar/0MU5L71EX45LALFAZ46EXOW8FV" target="_blank" class="btn btn-prime">Prime Video</a>
-            <a href="https://www.aha.video/movie/sardar-telugu" target="_blank" class="btn btn-youtube">Aha</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Sky%20force.png?raw=true" alt="Sky Force">
-        <div class="info">
-          <h3>Sky Force</h3>
-          <div class="year">2025</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/amzn1.dv.gti.e324ae53-4b7a-4aee-8f26-bd1c1bf19b29" target="_blank" class="btn btn-prime">Prime Video</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/The%20Gazi%20attack.png?raw=true" alt="Ghazi">
-        <div class="info">
-          <h3>The Ghazi Attack</h3>
-          <div class="year">2017</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/amzn1.dv.gti.9cad8c7c-d814-2ea7-bfb2-be0dc53a1a23" class="btn btn-prime">Prime Video</a>
-            <a href="https://www.netflix.com/in/title/80175334?source=imdb&fromWatch=true" target="_blank" class="btn btn-netflix">Netflix</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="movie-card">
-        <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/120%20bahadur.png?raw=true" alt="120 Bahadur">
-        <div class="info">
-          <h3>120 Bahadur</h3>
-          <div class="year">2025</div>
-          <div class="platforms">
-            <a href="https://www.primevideo.com/detail/amzn1.dv.gti.e92c5254-ef54-48bd-9bb2-bd951d9a279b" target="_blank" class="btn btn-prime">Prime Video</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- You can add more rows below if needed -->
-</main>
+      // Optional: pause when user clicks/drags
+      carousel.addEventListener('mousedown', () => { isPaused = true; });
+      carousel.addEventListener('mouseup', () => { isPaused = false; });
+    });
+  </script>
 </body>
 </html>
