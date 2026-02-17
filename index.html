@@ -127,14 +127,54 @@
       }
       h1 { font-size: 2.6rem; }
     }
+    .filters {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  backdrop-filter: blur(4px);
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: #fbbf24;
+  color: #0f172a;
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Mahan Bharat</h1>
-    <p class="tagline">India's Forgotten Glory on Screen</p><br>
-    <h3>Contributors to this page: Ajil K, Omkar Chevale, Himanshu P Dev</h3>
-  </header>
+ <header>
+  <h1>Mahan Bharat</h1>
+  <p class="tagline">India's Forgotten Glory on Screen</p><br>
+  <h3>Contributors to this page: Ajil K, Omkar Chevale, Himanshu P Dev</h3>
+
+  <!-- New filter buttons -->
+  <div class="filters">
+    <button class="filter-btn active" data-platform="all">All</button>
+    <button class="filter-btn" data-platform="netflix">Netflix</button>
+    <button class="filter-btn" data-platform="prime">Prime Video</button>
+    <button class="filter-btn" data-platform="hotstar">JioHotstar</button>
+    <button class="filter-btn" data-platform="youtube">YouTube</button>
+    <button class="filter-btn" data-platform="zee5">ZEE5</button>
+  </div>
+</header>
 
   <main>
     <!-- Row 2: Military & True Battle Stories -->
@@ -516,6 +556,60 @@
           isPaused = false;
         }
       }, 200);
+    });
+  });
+   document.querySelectorAll('.carousel').forEach(carousel => {
+    let scrollAmount = 0;
+    let isPaused = false;
+    const speed = 0.4;
+
+    function scroll() {
+      if (!isPaused) {
+        scrollAmount += speed;
+        carousel.scrollLeft = scrollAmount;
+
+        if (scrollAmount >= carousel.scrollWidth / 2) {
+          scrollAmount = 0;
+          carousel.scrollLeft = 0;
+        }
+      }
+      requestAnimationFrame(scroll);
+    }
+
+    scroll();
+
+    carousel.addEventListener('mouseenter', () => { isPaused = true; });
+    carousel.addEventListener('mouseleave', () => { isPaused = false; });
+    carousel.addEventListener('touchstart', () => { isPaused = true; });
+    carousel.addEventListener('touchend', () => { isPaused = false; });
+    carousel.addEventListener('mousedown', () => { isPaused = true; });
+    carousel.addEventListener('mouseup', () => { isPaused = false; });
+  });
+
+  // ====================
+  // Platform Filtering
+  // ====================
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const allMovieCards = document.querySelectorAll('.movie-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      // Add active to clicked button
+      button.classList.add('active');
+
+      const platform = button.getAttribute('data-platform');
+
+      allMovieCards.forEach(card => {
+        const cardPlatform = card.querySelector('.platforms a')?.className.includes(platform) || false;
+
+        if (platform === 'all' || cardPlatform) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     });
   });
 </script>
