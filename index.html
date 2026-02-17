@@ -589,29 +589,40 @@
   // ====================
   // Platform Filtering
   // ====================
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const allMovieCards = document.querySelectorAll('.movie-card');
+ // Platform Filtering - Improved to check ALL platforms in the card
+const filterButtons = document.querySelectorAll('.filter-btn');
+const allMovieCards = document.querySelectorAll('.movie-card');
 
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Remove active class from all buttons
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      // Add active to clicked button
-      button.classList.add('active');
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Remove active from all buttons
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    // Add active to clicked one
+    button.classList.add('active');
 
-      const platform = button.getAttribute('data-platform');
+    const selectedPlatform = button.getAttribute('data-platform');
 
-      allMovieCards.forEach(card => {
-        const cardPlatform = card.querySelector('.platforms a')?.className.includes(platform) || false;
+    allMovieCards.forEach(card => {
+      // Get ALL platform buttons in this card
+      const platformLinks = card.querySelectorAll('.platforms a');
+      let hasPlatform = false;
 
-        if (platform === 'all' || cardPlatform) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
+      // Check if ANY button in this card matches the selected platform
+      platformLinks.forEach(link => {
+        if (link.classList.contains(`btn-${selectedPlatform}`)) {
+          hasPlatform = true;
         }
       });
+
+      // Show card if "all" or if it has the selected platform
+      if (selectedPlatform === 'all' || hasPlatform) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
     });
   });
+});
 </script>
 </body>
 </html>
