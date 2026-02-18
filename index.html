@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mahan Bharat — India's Glory on Screen</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
     :root {
       --card-width: 220px;
@@ -14,29 +13,33 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', system-ui, sans-serif;
-      background: #0f172a;
+      background: url('https://raw.githubusercontent.com/himanshupdev123/Mahan-Bharat/main/images%20new/site%20background.png') no-repeat center center fixed;
+      background-size: cover;
       color: #e2e8f0;
       min-height: 100vh;
-      overflow-x: hidden;
+      position: relative;
     }
-    #particle-canvas {
+
+    /* Dark overlay for better readability on textured flag */
+    body::before {
+      content: "";
       position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65); /* dark navy overlay - adjust opacity 0.5–0.8 */
       z-index: -1;
     }
+
     header {
       text-align: center;
       padding: 80px 20px 50px;
-      background: rgba(185, 28, 28, 0.75);
+      background: rgba(185, 28, 28, 0.75); /* semi-transparent saffron */
       backdrop-filter: blur(6px);
       color: white;
       position: relative;
       z-index: 1;
     }
     h1, h2, h3, .tagline, .year, .info h3 {
-      text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.8); /* strong shadow for contrast */
     }
     h1 {
       margin: 0;
@@ -69,8 +72,8 @@
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE + Edge */
       display: flex;
       gap: var(--gap);
       padding: 0 10px 20px;
@@ -81,7 +84,7 @@
       cursor: grabbing;
     }
     .carousel::-webkit-scrollbar {
-      display: none;
+      display: none; /* Chrome, Safari, Opera */
     }
     .movie-card {
       flex: 0 0 var(--card-width);
@@ -139,7 +142,7 @@
     .btn-youtube { background: #ff0000; }
     .btn-hotstar { background: #ff0090; }
     .btn-zee5 { background: #673ab7; }
-    .btn-others { background: #000000; }
+    .btn-others { background: #000000;}
     @media (max-width: 600px) {
       :root {
         --card-width: 160px;
@@ -177,12 +180,11 @@
   </style>
 </head>
 <body>
-  <div id="particle-canvas"></div>
-
   <header>
     <h1>Mahan Bharat</h1>
     <p class="tagline">India's Forgotten Glory on Screen</p><br>
     <h3>Contributors to this page: Ajil K, Omkar Chevale, Himanshu P Dev</h3>
+    <!-- Filter buttons -->
     <div class="filters">
       <button class="filter-btn active" data-platform="all">All</button>
       <button class="filter-btn" data-platform="netflix">Netflix</button>
@@ -209,8 +211,7 @@
             </div>
           </div>
         </div>
-        <!-- ... remaining movie cards unchanged ... -->
-         <div class="movie-card">
+        <div class="movie-card">
           <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Shershaah.png?raw=true" alt="Shershaah">
           <div class="info">
             <h3>Shershaah</h3>
@@ -462,8 +463,7 @@
             </div>
           </div>
         </div>
-        <!-- ... remaining movie cards unchanged ... -->
-         <div class="movie-card">
+        <div class="movie-card">
           <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Padmaavat.png?raw=true" alt="Padmaavat">
           <div class="info">
             <h3>Padmaavat</h3>
@@ -528,6 +528,7 @@
         if (!isPaused) {
           scrollAmount += speed;
           carousel.scrollLeft = scrollAmount;
+
           if (scrollAmount >= carousel.scrollWidth / 2) {
             scrollAmount = 0;
             carousel.scrollLeft = 0;
@@ -575,101 +576,6 @@
         });
       });
     });
-  </script>
-
-  <!-- Three.js Interactive Particle Flag -->
-  <script>
-    // Only run on desktop/large screens
-    if (window.innerWidth > 768 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const canvas = document.getElementById('particle-canvas');
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      canvas.appendChild(renderer.domElement);
-
-      // Colors: Saffron, White, Green
-      const colors = [
-        new THREE.Color(0xff9933), // Saffron
-        new THREE.Color(0xffffff), // White
-        new THREE.Color(0x138808)  // Green
-      ];
-
-      const particles = 1500;
-      const geometry = new THREE.BufferGeometry();
-      const positions = new Float32Array(particles * 3);
-      const particleColors = new Float32Array(particles * 3);
-      const sizes = new Float32Array(particles);
-
-      for (let i = 0; i < particles; i++) {
-        // Spread particles in flag shape (rough rectangle with chakra in center)
-        const x = (Math.random() - 0.5) * 30;
-        const y = (Math.random() - 0.5) * 20;
-        const z = (Math.random() - 0.5) * 5;
-        positions[i * 3]     = x;
-        positions[i * 3 + 1] = y;
-        positions[i * 3 + 2] = z;
-
-        // Assign tricolor randomly
-        const color = colors[Math.floor(Math.random() * 3)];
-        particleColors[i * 3]     = color.r;
-        particleColors[i * 3 + 1] = color.g;
-        particleColors[i * 3 + 2] = color.b;
-
-        sizes[i] = Math.random() * 1.5 + 0.8;
-      }
-
-      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-      geometry.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
-      geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-
-      const material = new THREE.PointsMaterial({
-        size: 0.25,
-        vertexColors: true,
-        transparent: true,
-        opacity: 0.9,
-        blending: THREE.AdditiveBlending
-      });
-
-      const points = new THREE.Points(geometry, material);
-      scene.add(points);
-
-      camera.position.z = 20;
-
-      // Mouse interaction
-      let mouseX = 0, mouseY = 0;
-      document.addEventListener('mousemove', (e) => {
-        mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-        mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-      });
-
-      function animate() {
-        requestAnimationFrame(animate);
-
-        // Gentle wave
-        const positions = points.geometry.attributes.position.array;
-        for (let i = 0; i < particles; i++) {
-          const ix = i * 3;
-          const iy = ix + 1;
-          positions[iy] += Math.sin(Date.now() * 0.001 + positions[ix]) * 0.005;
-        }
-        points.geometry.attributes.position.needsUpdate = true;
-
-        // Mouse attraction/repulsion
-        points.rotation.y += mouseX * 0.001;
-        points.rotation.x += mouseY * 0.001;
-
-        renderer.render(scene, camera);
-      }
-      animate();
-
-      // Resize handler
-      window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      });
-    }
   </script>
 </body>
 </html>
