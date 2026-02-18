@@ -18,15 +18,40 @@
       color: #e2e8f0;
       min-height: 100vh;
       position: relative;
+      overflow-x: hidden;
     }
 
-    /* Dark overlay for better readability on textured flag */
+    /* Dark overlay (lightened version) */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      background: rgba(185, 28, 28, 0.35); /* dark navy overlay - adjust opacity 0.5–0.8 */
+      background: rgba(15, 23, 42, 0.45); /* 45% opacity – balanced & not too dark */
+      z-index: -2;
+    }
+
+    /* Subtle flag breathing/wave animation (very gentle) */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: inherit;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.28; /* faint duplicate layer for wave effect */
       z-index: -1;
+      animation: flagBreath 20s ease-in-out infinite;
+    }
+
+    @keyframes flagBreath {
+      0%, 100% {
+        transform: translateX(0) scale(1.01);
+        opacity: 0.28;
+      }
+      50% {
+        transform: translateX(-1.5%) scale(1.025);
+        opacity: 0.38;
+      }
     }
 
     header {
@@ -38,9 +63,11 @@
       position: relative;
       z-index: 1;
     }
+
     h1, h2, h3, .tagline, .year, .info h3 {
-      text-shadow: 0 2px 6px rgba(0,0,0,0.8); /* strong shadow for contrast */
+      text-shadow: 0 3px 10px rgba(0,0,0,0.9); /* stronger shadow for flag bg */
     }
+
     h1 {
       margin: 0;
       font-size: 3.8rem;
@@ -72,8 +99,8 @@
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE + Edge */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
       display: flex;
       gap: var(--gap);
       padding: 0 10px 20px;
@@ -84,7 +111,7 @@
       cursor: grabbing;
     }
     .carousel::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera */
+      display: none;
     }
     .movie-card {
       flex: 0 0 var(--card-width);
@@ -528,7 +555,6 @@
         if (!isPaused) {
           scrollAmount += speed;
           carousel.scrollLeft = scrollAmount;
-
           if (scrollAmount >= carousel.scrollWidth / 2) {
             scrollAmount = 0;
             carousel.scrollLeft = 0;
