@@ -532,60 +532,7 @@
  
   </main>
 
-  <!-- Auto-scroll JavaScript -->
  <script>
-document.querySelectorAll('.carousel').forEach(carousel => {
-  let scrollAmount = 0;
-  let isAutoScrolling = true;     // starts as true → auto-scroll enabled
-  const speed = 0.4;
-
-  function autoScroll() {
-    if (!isAutoScrolling) return; // stop completely if user interacted
-
-    scrollAmount += speed;
-    carousel.scrollLeft = scrollAmount;
-
-    if (scrollAmount >= carousel.scrollWidth / 2) {
-      scrollAmount = 0;
-      carousel.scrollLeft = 0;
-    }
-
-    requestAnimationFrame(autoScroll);
-  }
-
-  // Start auto-scroll initially
-  autoScroll();
-
-  // Once user interacts → permanently disable auto-scroll
-  const disableAutoScroll = () => {
-    if (isAutoScrolling) {
-      isAutoScrolling = false;
-      // Optional: give visual feedback (e.g. cursor change already exists)
-    }
-  };
-
-  // Touch events (mobile) — any touch disables forever
-  carousel.addEventListener('touchstart', disableAutoScroll, { passive: true });
-  carousel.addEventListener('touchmove', disableAutoScroll, { passive: true });
-
-  // Mouse events (desktop) — only disable on actual drag
-  carousel.addEventListener('mousedown', (e) => {
-    if (e.button === 0) disableAutoScroll(); // left click drag
-  });
-
-  // Optional: still pause briefly on hover (for desktop feel), but not permanent
-  carousel.addEventListener('mouseenter', () => {
-    // You can keep a temporary pause here if you want
-    // but auto-scroll will resume on mouseleave unless user dragged
-  });
-  carousel.addEventListener('mouseleave', () => {
-    // Only resume if no interaction happened
-    if (isAutoScrolling) {
-      requestAnimationFrame(autoScroll);
-    }
-  });
-});
-
   // ====================
   // Platform Filtering
   // ====================
