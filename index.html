@@ -13,14 +13,33 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', system-ui, sans-serif;
-      background: #0f172a;
+      background: url('https://raw.githubusercontent.com/himanshupdev123/Mahan-Bharat/main/images%20new/site%20background.png') no-repeat center center fixed;
+      background-size: cover;
       color: #e2e8f0;
+      min-height: 100vh;
+      position: relative;
     }
+
+    /* Dark overlay for better readability on textured flag */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65); /* dark navy overlay - adjust opacity 0.5–0.8 */
+      z-index: -1;
+    }
+
     header {
       text-align: center;
       padding: 80px 20px 50px;
-      background: linear-gradient(135deg, #b91c1c, #c2410c);
+      background: rgba(185, 28, 28, 0.75); /* semi-transparent saffron */
+      backdrop-filter: blur(6px);
       color: white;
+      position: relative;
+      z-index: 1;
+    }
+    h1, h2, h3, .tagline, .year, .info h3 {
+      text-shadow: 0 2px 6px rgba(0,0,0,0.8); /* strong shadow for contrast */
     }
     h1 {
       margin: 0;
@@ -36,6 +55,8 @@
       max-width: 1600px;
       margin: 0 auto;
       padding: 40px 20px;
+      position: relative;
+      z-index: 1;
     }
     .row {
       margin-bottom: 60px;
@@ -130,54 +151,50 @@
       h1 { font-size: 2.6rem; }
     }
     .filters {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.filter-btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.15);
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-  backdrop-filter: blur(4px);
-}
-
-.filter-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-}
-
-.filter-btn.active {
-  background: #fbbf24;
-  color: #0f172a;
-  box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
-}
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .filter-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      backdrop-filter: blur(4px);
+    }
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .filter-btn.active {
+      background: #fbbf24;
+      color: #0f172a;
+      box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+    }
   </style>
 </head>
 <body>
- <header>
-  <h1>Mahan Bharat</h1>
-  <p class="tagline">India's Forgotten Glory on Screen</p><br>
-  <h3>Contributors to this page: Ajil K, Omkar Chevale, Himanshu P Dev</h3>
-
-  <!-- New filter buttons -->
-  <div class="filters">
-    <button class="filter-btn active" data-platform="all">All</button>
-    <button class="filter-btn" data-platform="netflix">Netflix</button>
-    <button class="filter-btn" data-platform="prime">Prime Video</button>
-    <button class="filter-btn" data-platform="hotstar">JioHotstar</button>
-    <button class="filter-btn" data-platform="youtube">YouTube</button>
-    <button class="filter-btn" data-platform="zee5">ZEE5</button>
-    <button class="filter-btn" data-platform="others">others</button>
-  </div>
-</header>
+  <header>
+    <h1>Mahan Bharat</h1>
+    <p class="tagline">India's Forgotten Glory on Screen</p><br>
+    <h3>Contributors to this page: Ajil K, Omkar Chevale, Himanshu P Dev</h3>
+    <!-- Filter buttons -->
+    <div class="filters">
+      <button class="filter-btn active" data-platform="all">All</button>
+      <button class="filter-btn" data-platform="netflix">Netflix</button>
+      <button class="filter-btn" data-platform="prime">Prime Video</button>
+      <button class="filter-btn" data-platform="hotstar">JioHotstar</button>
+      <button class="filter-btn" data-platform="youtube">YouTube</button>
+      <button class="filter-btn" data-platform="zee5">ZEE5</button>
+      <button class="filter-btn" data-platform="others">Others</button>
+    </div>
+  </header>
 
   <main>
     <!-- Row 2: Military & True Battle Stories -->
@@ -431,9 +448,10 @@
         </div>
       </div>
     </section>
-    <!-- Row 1: Kings, Warriors & Legends (now first / on top) -->
+
+    <!-- Row 1: Kings, Warriors & Legends -->
     <section class="row">
-      <h2>Bharat's Legendary Kings, Queens & warriors</h2>
+      <h2>Bharat's Legendary Kings, Queens & Warriors</h2>
       <div class="carousel">
         <div class="movie-card">
           <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/Manikarnika%20The%20Queen%20of%20Jhansi.png?raw=true" alt="Manikarnika">
@@ -466,12 +484,12 @@
           </div>
         </div>
         <div class="movie-card">
-          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/chhaava.png?raw=true" alt="Chhatrapati Shivaji Maharaj">
+          <img class="poster" src="https://github.com/himanshupdev123/Mahan-Bharat/blob/new-branch/images%20new/chhaava.png?raw=true" alt="Chhaava">
           <div class="info">
             <h3>Chhaava</h3>
             <div class="year">2025</div>
             <div class="platforms">
-              <a href="https://www.netflix.com/in/title/81902061" target="_blank" class="btn btn-netflix">NetFlix</a>
+              <a href="https://www.netflix.com/in/title/81902061" target="_blank" class="btn btn-netflix">Netflix</a>
             </div>
           </div>
         </div>
@@ -481,7 +499,7 @@
             <h3>Panipat</h3>
             <div class="year">2019</div>
             <div class="platforms">
-              <a href="https://www.netflix.com/in/title/81227047" target="_blank" class="btn btn-netflix">NetFlix</a>
+              <a href="https://www.netflix.com/in/title/81227047" target="_blank" class="btn btn-netflix">Netflix</a>
             </div>
           </div>
         </div>
@@ -497,135 +515,67 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- Auto-scroll JavaScript -->
- <script>
-  document.querySelectorAll('.carousel').forEach(carousel => {
-    let scrollAmount = 0;
-    let isPaused = false;
-    const speed = 0.4; // ← adjust this (0.2 = slower, 0.6 = faster)
+  <script>
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      let scrollAmount = 0;
+      let isPaused = false;
+      const speed = 0.4;
 
-    function scroll() {
-      if (!isPaused) {
-        scrollAmount += speed;
-        carousel.scrollLeft = scrollAmount;
+      function scroll() {
+        if (!isPaused) {
+          scrollAmount += speed;
+          carousel.scrollLeft = scrollAmount;
 
-        // Seamless loop: reset when we've scrolled past half
-        if (scrollAmount >= carousel.scrollWidth / 2) {
-          scrollAmount = 0;
-          carousel.scrollLeft = 0;
+          if (scrollAmount >= carousel.scrollWidth / 2) {
+            scrollAmount = 0;
+            carousel.scrollLeft = 0;
+          }
         }
+        requestAnimationFrame(scroll);
       }
 
-      requestAnimationFrame(scroll);
-    }
+      scroll();
 
-    // Start scrolling immediately
-    scroll();
-
-    // Pause only when mouse is directly over the carousel
-    carousel.addEventListener('mouseenter', () => {
-      isPaused = true;
+      carousel.addEventListener('mouseenter', () => { isPaused = true; });
+      carousel.addEventListener('mouseleave', () => { isPaused = false; });
+      carousel.addEventListener('touchstart', () => { isPaused = true; });
+      carousel.addEventListener('touchend', () => { isPaused = false; });
+      carousel.addEventListener('mousedown', () => { isPaused = true; });
+      carousel.addEventListener('mouseup', () => { isPaused = false; });
     });
 
-    carousel.addEventListener('mouseleave', () => {
-      isPaused = false;
-    });
+    // Platform Filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const allMovieCards = document.querySelectorAll('.movie-card');
 
-    // Also pause during touch/drag on mobile & desktop
-    carousel.addEventListener('mousedown', () => {
-      isPaused = true;
-    });
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
 
-    carousel.addEventListener('mouseup', () => {
-      isPaused = false;
-    });
+        const selectedPlatform = button.getAttribute('data-platform');
 
-    carousel.addEventListener('touchstart', () => {
-      isPaused = true;
-    });
+        allMovieCards.forEach(card => {
+          const platformLinks = card.querySelectorAll('.platforms a');
+          let hasPlatform = false;
 
-    carousel.addEventListener('touchend', () => {
-      isPaused = false;
-    });
+          platformLinks.forEach(link => {
+            if (link.classList.contains(`btn-${selectedPlatform}`)) {
+              hasPlatform = true;
+            }
+          });
 
-    // Optional: resume after a short delay if user stops interacting
-    // (helps if mouse leaves but no leave event fires properly)
-    carousel.addEventListener('mouseleave', () => {
-      setTimeout(() => {
-        if (!carousel.matches(':hover')) {
-          isPaused = false;
-        }
-      }, 200);
-    });
-  });
-   document.querySelectorAll('.carousel').forEach(carousel => {
-    let scrollAmount = 0;
-    let isPaused = false;
-    const speed = 0.4;
-
-    function scroll() {
-      if (!isPaused) {
-        scrollAmount += speed;
-        carousel.scrollLeft = scrollAmount;
-
-        if (scrollAmount >= carousel.scrollWidth / 2) {
-          scrollAmount = 0;
-          carousel.scrollLeft = 0;
-        }
-      }
-      requestAnimationFrame(scroll);
-    }
-
-    scroll();
-
-    carousel.addEventListener('mouseenter', () => { isPaused = true; });
-    carousel.addEventListener('mouseleave', () => { isPaused = false; });
-    carousel.addEventListener('touchstart', () => { isPaused = true; });
-    carousel.addEventListener('touchend', () => { isPaused = false; });
-    carousel.addEventListener('mousedown', () => { isPaused = true; });
-    carousel.addEventListener('mouseup', () => { isPaused = false; });
-  });
-
-  // ====================
-  // Platform Filtering
-  // ====================
- // Platform Filtering - Improved to check ALL platforms in the card
-const filterButtons = document.querySelectorAll('.filter-btn');
-const allMovieCards = document.querySelectorAll('.movie-card');
-
-filterButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    // Remove active from all buttons
-    filterButtons.forEach(btn => btn.classList.remove('active'));
-    // Add active to clicked one
-    button.classList.add('active');
-
-    const selectedPlatform = button.getAttribute('data-platform');
-
-    allMovieCards.forEach(card => {
-      // Get ALL platform buttons in this card
-      const platformLinks = card.querySelectorAll('.platforms a');
-      let hasPlatform = false;
-
-      // Check if ANY button in this card matches the selected platform
-      platformLinks.forEach(link => {
-        if (link.classList.contains(`btn-${selectedPlatform}`)) {
-          hasPlatform = true;
-        }
+          if (selectedPlatform === 'all' || hasPlatform) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
       });
-
-      // Show card if "all" or if it has the selected platform
-      if (selectedPlatform === 'all' || hasPlatform) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
     });
-  });
-});
-</script>
+  </script>
 </body>
 </html>
