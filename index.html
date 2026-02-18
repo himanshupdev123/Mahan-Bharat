@@ -534,18 +534,13 @@
 
   <!-- Auto-scroll JavaScript -->
  <script>
- document.querySelectorAll('.carousel').forEach(carousel => {
+document.querySelectorAll('.carousel').forEach(carousel => {
   let scrollAmount = 0;
-  let isPaused = false;
-  let userInteracting = false;
+  let isAutoScrolling = true;     // starts as true → auto-scroll enabled
   const speed = 0.4;
-  let animationFrame;
 
-  function scroll() {
-    if (isPaused || userInteracting) {
-      animationFrame = requestAnimationFrame(scroll);
-      return;
-    }
+  function autoScroll() {
+    if (!isAutoScrolling) return; // stop completely if user interacted
 
     scrollAmount += speed;
     carousel.scrollLeft = scrollAmount;
@@ -555,63 +550,39 @@
       carousel.scrollLeft = 0;
     }
 
-    animationFrame = requestAnimationFrame(scroll);
+    requestAnimationFrame(autoScroll);
   }
 
-  // Start auto-scroll
-  animationFrame = requestAnimationFrame(scroll);
+  // Start auto-scroll initially
+  autoScroll();
 
-  // Detect user is actively touching / dragging
-  const startInteraction = () => {
-    userInteracting = true;
-    isPaused = true;
-    cancelAnimationFrame(animationFrame); // stop forcing scroll
-  };
-
-  const endInteraction = () => {
-    // Give user a moment before resuming auto-scroll
-    setTimeout(() => {
-      if (!userInteracting) {
-        isPaused = false;
-        animationFrame = requestAnimationFrame(scroll);
-      }
-    }, 800); // 800ms delay - feels natural, prevents immediate fight
-  };
-
-  // Touch events (mobile)
-  carousel.addEventListener('touchstart', startInteraction, { passive: true });
-  carousel.addEventListener('touchmove', startInteraction, { passive: true });
-  carousel.addEventListener('touchend', () => {
-    userInteracting = false;
-    endInteraction();
-  });
-  carousel.addEventListener('touchcancel', () => {
-    userInteracting = false;
-    endInteraction();
-  });
-
-  // Mouse events (desktop)
-  carousel.addEventListener('mousedown', startInteraction);
-  carousel.addEventListener('mousemove', (e) => {
-    if (e.buttons === 1) startInteraction(); // only while dragging
-  });
-  carousel.addEventListener('mouseup', () => {
-    userInteracting = false;
-    endInteraction();
-  });
-  carousel.addEventListener('mouseleave', () => {
-    if (userInteracting) {
-      userInteracting = false;
-      endInteraction();
+  // Once user interacts → permanently disable auto-scroll
+  const disableAutoScroll = () => {
+    if (isAutoScrolling) {
+      isAutoScrolling = false;
+      // Optional: give visual feedback (e.g. cursor change already exists)
     }
+  };
+
+  // Touch events (mobile) — any touch disables forever
+  carousel.addEventListener('touchstart', disableAutoScroll, { passive: true });
+  carousel.addEventListener('touchmove', disableAutoScroll, { passive: true });
+
+  // Mouse events (desktop) — only disable on actual drag
+  carousel.addEventListener('mousedown', (e) => {
+    if (e.button === 0) disableAutoScroll(); // left click drag
   });
 
-  // Hover pause (optional - still keep for desktop feel)
+  // Optional: still pause briefly on hover (for desktop feel), but not permanent
   carousel.addEventListener('mouseenter', () => {
-    if (!userInteracting) isPaused = true;
+    // You can keep a temporary pause here if you want
+    // but auto-scroll will resume on mouseleave unless user dragged
   });
   carousel.addEventListener('mouseleave', () => {
-    if (!userInteracting) isPaused = false;
+    // Only resume if no interaction happened
+    if (isAutoScrolling) {
+      requestAnimationFrame(autoScroll);
+    }
   });
 });
 
