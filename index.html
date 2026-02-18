@@ -534,92 +534,86 @@
 
   <!-- Auto-scroll JavaScript -->
  <script>
-  document.querySelectorAll('.carousel').forEach(carousel => {
-    let scrollAmount = 0;
-    let isPaused = false;
-    const speed = 0.8; // ← adjust this (0.2 = slower, 0.6 = faster)
+ document.querySelectorAll('.carousel').forEach(carousel => {
+  let scrollAmount = 0;
+  let isPaused = false;
+  let userInteracting = false;
+  const speed = 0.4;
+  let animationFrame;
 
-    function scroll() {
-      if (!isPaused) {
-        scrollAmount += speed;
-        carousel.scrollLeft = scrollAmount;
-
-        // Seamless loop: reset when we've scrolled past half
-        if (scrollAmount >= carousel.scrollWidth / 2) {
-          scrollAmount = 0;
-          carousel.scrollLeft = 0;
-        }
-      }
-
-      requestAnimationFrame(scroll);
+  function scroll() {
+    if (isPaused || userInteracting) {
+      animationFrame = requestAnimationFrame(scroll);
+      return;
     }
 
-    // Start scrolling immediately
-    scroll();
+    scrollAmount += speed;
+    carousel.scrollLeft = scrollAmount;
 
-    // Pause only when mouse is directly over the carousel
-    carousel.addEventListener('mouseenter', () => {
-      isPaused = true;
-    });
-
-    carousel.addEventListener('mouseleave', () => {
-      isPaused = false;
-    });
-
-    // Also pause during touch/drag on mobile & desktop
-    carousel.addEventListener('mousedown', () => {
-      isPaused = true;
-    });
-
-    carousel.addEventListener('mouseup', () => {
-      isPaused = false;
-    });
-
-    carousel.addEventListener('touchstart', () => {
-      isPaused = true;
-    });
-
-    carousel.addEventListener('touchend', () => {
-      isPaused = false;
-    });
-
-    // Optional: resume after a short delay if user stops interacting
-    // (helps if mouse leaves but no leave event fires properly)
-    carousel.addEventListener('mouseleave', () => {
-      setTimeout(() => {
-        if (!carousel.matches(':hover')) {
-          isPaused = false;
-        }
-      }, 200);
-    });
-  });
-   document.querySelectorAll('.carousel').forEach(carousel => {
-    let scrollAmount = 0;
-    let isPaused = false;
-    const speed = 0.8;
-
-    function scroll() {
-      if (!isPaused) {
-        scrollAmount += speed;
-        carousel.scrollLeft = scrollAmount;
-
-        if (scrollAmount >= carousel.scrollWidth / 2) {
-          scrollAmount = 0;
-          carousel.scrollLeft = 0;
-        }
-      }
-      requestAnimationFrame(scroll);
+    if (scrollAmount >= carousel.scrollWidth / 2) {
+      scrollAmount = 0;
+      carousel.scrollLeft = 0;
     }
 
-    scroll();
+    animationFrame = requestAnimationFrame(scroll);
+  }
 
-    carousel.addEventListener('mouseenter', () => { isPaused = true; });
-    carousel.addEventListener('mouseleave', () => { isPaused = false; });
-    carousel.addEventListener('touchstart', () => { isPaused = true; });
-    carousel.addEventListener('touchend', () => { isPaused = false; });
-    carousel.addEventListener('mousedown', () => { isPaused = true; });
-    carousel.addEventListener('mouseup', () => { isPaused = false; });
+  // Start auto-scroll
+  animationFrame = requestAnimationFrame(scroll);
+
+  // Detect user is actively touching / dragging
+  const startInteraction = () => {
+    userInteracting = true;
+    isPaused = true;
+    cancelAnimationFrame(animationFrame); // stop forcing scroll
+  };
+
+  const endInteraction = () => {
+    // Give user a moment before resuming auto-scroll
+    setTimeout(() => {
+      if (!userInteracting) {
+        isPaused = false;
+        animationFrame = requestAnimationFrame(scroll);
+      }
+    }, 800); // 800ms delay - feels natural, prevents immediate fight
+  };
+
+  // Touch events (mobile)
+  carousel.addEventListener('touchstart', startInteraction, { passive: true });
+  carousel.addEventListener('touchmove', startInteraction, { passive: true });
+  carousel.addEventListener('touchend', () => {
+    userInteracting = false;
+    endInteraction();
   });
+  carousel.addEventListener('touchcancel', () => {
+    userInteracting = false;
+    endInteraction();
+  });
+
+  // Mouse events (desktop)
+  carousel.addEventListener('mousedown', startInteraction);
+  carousel.addEventListener('mousemove', (e) => {
+    if (e.buttons === 1) startInteraction(); // only while dragging
+  });
+  carousel.addEventListener('mouseup', () => {
+    userInteracting = false;
+    endInteraction();
+  });
+  carousel.addEventListener('mouseleave', () => {
+    if (userInteracting) {
+      userInteracting = false;
+      endInteraction();
+    }
+  });
+
+  // Hover pause (optional - still keep for desktop feel)
+  carousel.addEventListener('mouseenter', () => {
+    if (!userInteracting) isPaused = true;
+  });
+  carousel.addEventListener('mouseleave', () => {
+    if (!userInteracting) isPaused = false;
+  });
+});
 
   // ====================
   // Platform Filtering
